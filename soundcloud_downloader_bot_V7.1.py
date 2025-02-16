@@ -1,44 +1,5 @@
 """
 V7.1
-tgmusicbot, Telegram audio downloader bot
-Copyright (C) 2021  Dash Eclipse
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-
-Download music from YouTube/SoundCloud/Mixcloud, convert thumbnail
-to square thumbnail and upload to Telegram
-
-Send a link as a reply to bypass Music category check
-
-# requirements.txt
-OpenCC
-Pillow
-youtube-dl
-
-# ../../config.py
-MUSIC_CHATS = [
-    -1234567891012,
-    -2345678910123
-]
-MUSIC_USERS = [1234567890]
-MUSIC_DELAY_DELETE_INFORM = 10
-MUSIC_INFORM_AVAILABILITY = (
-    "This bot only serves the specified group and"
-    "its members in private chat"
-)
-MUSIC_MAX_LENGTH = 10800
 
 """
 import os
@@ -74,23 +35,7 @@ REGEX_EXCLUDE_URL = (
 os.environ["API_ID"] = API_ID
 os.environ["API_HASH"] = API_HASH
 os.environ["BOT_TOKEN"] = BOT_TOKEN
-# os.environ["MUSIC_CHATS"] = "6531011710 7534019930 "
-print("45")
-# def get_music_chats():
-#     chats = []
-#     for x in os.environ["MUSIC_CHATS"].split(" "):
-#         try:
-#             chats.append(int(x))
-#         except ValueError:
-#             chats.append(x)
-#     return chats
-    
-# def load_authorized_users():
-#     try:
-#         with open('allowed_users.txt', 'r') as f:
-#             return [int(line.strip()) for line in f]
-#     except FileNotFoundError:
-#         return []
+
 def is_user_in_file(user_id: int) -> bool:
         with open("allowed_users.txt", "r") as file:
             # خواندن تمام خطوط و تبدیل به لیست
@@ -135,7 +80,7 @@ API_ID = os.environ["API_ID"]
 API_HASH = os.environ["API_HASH"]
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 app = Client(
-    "tgmusicbot",
+    "bot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN
