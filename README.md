@@ -32,3 +32,9 @@ git clone https://github.com/your-username/soundcloud-downloader-bot.git
 cd soundcloud-downloader-bot
 pip install -r requirements.txt
 python bot.py
+
+
+🛠 تکنولوژی‌های استفاده شده | Technologies Used
+Python 🐍
+Telegram Bot API ✈️
+SoundCloud API 🎵
