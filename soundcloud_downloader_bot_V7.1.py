@@ -53,6 +53,11 @@ from PIL import Image
 import ffmpeg
 import re
 
+# Config
+API_ID = "API_ID"
+API_HASH = "API_HASH"
+BOT_TOKEN = "BOT_TOKEN"
+admin_chat_id = "admin_chat_id"
 
 MUSIC_MAX_LENGTH = 10800
 DELAY_DELETE_INFORM = 10
@@ -66,9 +71,9 @@ REGEX_SITES = (
 REGEX_EXCLUDE_URL = (
     r"\/channel\/|\/playlist\?list=|&list=|\/sets\/"
 )
-os.environ["API_ID"] = "27970058"
-os.environ["API_HASH"] = "c27673229797bbc9b2e3d60e95520738"
-os.environ["BOT_TOKEN"] = "7621435163:AAHdwI3oaP7QxFBp89bxqAKvTCaGAml8pV4"
+os.environ["API_ID"] = API_ID
+os.environ["API_HASH"] = API_HASH
+os.environ["BOT_TOKEN"] = BOT_TOKEN
 # os.environ["MUSIC_CHATS"] = "6531011710 7534019930 "
 print("45")
 # def get_music_chats():
@@ -147,7 +152,7 @@ main_filter = (
 
 @app.on_message(main_filter & filters.regex("^/help"))
 async def start(_, message: Message):
-    ADMINS = str(5623970752)
+    ADMINS = str(admin_chat_id)
     if ADMINS == str(message.from_user.id):
 
         await message.reply_text('''/start استارت
@@ -159,7 +164,7 @@ async def start(_, message: Message):
 
 @app.on_message(filters.command("add") & filters.text)
 def handle_add_command(client, message):
-    ADMINS = str(5623970752)
+    ADMINS = str(admin_chat_id)
     if ADMINS == str(message.from_user.id):
         try:
             # بررسی فرمت پیام: باید /add به همراه یک شماره باشد
@@ -187,7 +192,7 @@ def handle_add_command(client, message):
 
 @app.on_message(filters.command("del") & filters.text)
 def handle_remove_command(client, message):
-    ADMINS = str(5623970752)
+    ADMINS = str(admin_chat_id)
     if ADMINS == str(message.from_user.id):
         try:
             # بررسی فرمت پیام: باید /del به همراه یک شماره باشد
@@ -216,7 +221,7 @@ def handle_remove_command(client, message):
 
 @app.on_message(filters.command("list") & filters.text)
 def handle_list_command(client, message):
-    ADMINS = str(5623970752)
+    ADMINS = str(admin_chat_id)
     if ADMINS == str(message.from_user.id):
         try:
             # خواندن محتوای فایل
@@ -253,7 +258,7 @@ async def ping_pong(_, message):
         f"🆔 آی‌دی عددی: {user_id}\n"
         f"💬 پیام:\n{text}"
     )
-    await app.send_message(chat_id=5623970752, text=log_text)
+    await app.send_message(chat_id=admin_chat_id, text=log_text)
     if is_user_in_file(message.from_user.id) == True:
         await _reply_and_delete_later(message, "pong",
                                     DELAY_DELETE_INFORM)
@@ -273,7 +278,7 @@ async def start(_, message: Message):
         f"🆔 آی‌دی عددی: {user_id}\n"
         f"💬 پیام:\n{text}"
     )
-    await app.send_message(chat_id=5623970752, text=log_text)
+    await app.send_message(chat_id=admin_chat_id, text=log_text)
     if is_user_in_file(message.from_user.id) == True:
 
         await message.reply_text('''🎵 SoundCloud Downloader 🎵
@@ -312,7 +317,7 @@ async def music_downloader(_, message: Message):
         f"🆔 آی‌دی عددی: {user_id}\n"
         f"💬 پیام:\n{text}"
     )
-    await app.send_message(chat_id=5623970752, text=log_text)
+    await app.send_message(chat_id=admin_chat_id, text=log_text)
 
     print(message.text)
     if is_user_in_file(message.from_user.id):  # بررسی کاربر
@@ -433,7 +438,7 @@ async def _upload_audio(message: Message, info_dict, audio_file):
 
 @app.on_message(filters.text)
 async def log_message(_, message: Message):
-    ADMINS = [5623970752]
+    ADMINS = [admin_chat_id]
     # اطلاعات پیام و کاربر ارسال‌کننده
     user_id = message.from_user.id  # آی‌دی عددی کاربر
     username = message.from_user.username or "بدون یوزرنیم"  # یوزرنیم کاربر (در صورت وجود)
