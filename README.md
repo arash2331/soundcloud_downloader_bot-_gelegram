@@ -22,7 +22,12 @@
 1. Open the bot on Telegram: [@soundcloud_downloader_7_bot](https://t.me/soundcloud_downloader_7_bot)  
 2. Copy the SoundCloud track link.  
 3. Send the link in chat.  
-4. Receive and download the audio file! 🎧  
+4. Receive and download the audio file! 🎧
+
+🛠 تکنولوژی‌های استفاده شده | Technologies Used
+Python 🐍
+Telegram Bot API ✈️
+SoundCloud API 🎵
 
 ## ⚙️ نحوه اجرا | How to Run  
 برای اجرای این پروژه، مراحل زیر را دنبال کنید:  
@@ -32,9 +37,3 @@ git clone https://github.com/your-username/soundcloud-downloader-bot.git
 cd soundcloud-downloader-bot
 pip install -r requirements.txt
 python bot.py
-
-
-🛠 تکنولوژی‌های استفاده شده | Technologies Used
-Python 🐍
-Telegram Bot API ✈️
-SoundCloud API 🎵
