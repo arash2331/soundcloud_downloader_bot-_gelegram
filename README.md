@@ -33,7 +33,7 @@ SoundCloud API 🎵
 برای اجرای این پروژه، مراحل زیر را دنبال کنید:  
 
 ```bash
-git clone https://github.com/arash2331/soundcloud_downloader_bot-_gelegram
-cd soundcloud_downloader_bot-_gelegram
+git clone https://github.com/arash2331/soundcloud_downloader_bot_gelegram
+cd soundcloud_downloader_bot_gelegram
 pip install -r requirements.txt
 python soundcloud_downloader_bot_V7.1.py
